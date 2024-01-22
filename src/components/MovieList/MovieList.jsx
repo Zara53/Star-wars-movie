@@ -16,10 +16,10 @@ const MovieList = () => {
           "https://swapi.dev/api/films/?format=json"
         );
         setMovies(response.data.results);
-        setFilteredMovies(response.data.results); // Initially, set filtered movies to all movies
+        setFilteredMovies(response.data.results);
       } catch (error) {
         console.error("Error fetching movies:", error);
-        setMovies([]); // Set an empty array in case of an error
+        setMovies([]);
         setFilteredMovies([]);
       }
     };

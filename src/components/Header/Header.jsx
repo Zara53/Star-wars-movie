@@ -26,10 +26,9 @@ const Header = ({ movies, setFilteredMovies }) => {
   };
 
   const handleSort = (type) => {
-    // Toggle between ascending and descending order on each click
     const sortedMovies = [...movies].sort((a, b) => {
       if (type === "episode_id") {
-        return a[type] - b[type]; // Assuming episode_id is a number
+        return a[type] - b[type];
       } else if (
         type === "release_date" &&
         typeof a[type] === "string" &&
@@ -39,7 +38,7 @@ const Header = ({ movies, setFilteredMovies }) => {
           ? b[type].localeCompare(a[type])
           : a[type].localeCompare(b[type]);
       } else {
-        return 0; // No sorting for other types
+        return 0;
       }
     });
 
@@ -68,9 +67,6 @@ const Header = ({ movies, setFilteredMovies }) => {
         value={searchTerm}
         onChange={handleSearch}
       />
-      {searchTerm && setFilteredMovies && setFilteredMovies.length === 0 && (
-        <div>No Data Found</div>
-      )}
     </div>
   );
 };
