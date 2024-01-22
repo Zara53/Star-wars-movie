@@ -35,17 +35,21 @@ const MovieList = () => {
       <Header movies={movies} setFilteredMovies={setFilteredMovies} />
       <div className={styles.appContainer}>
         <div className={styles.column}>
-          <ul>
-            {filteredMovies.map((movie) => (
-              <li
-                key={movie.episode_id}
-                onClick={() => handleApiItemClick(movie)}
-              >
-                Episode {movie.episode_id} Episode {ToRoman(movie.episode_id)} -
-                {movie.title} {movie.release_date}
-              </li>
-            ))}
-          </ul>
+          {filteredMovies.length === 0 ? (
+            <div>No Data Found</div>
+          ) : (
+            <ul>
+              {filteredMovies.map((movie) => (
+                <li
+                  key={movie.episode_id}
+                  onClick={() => handleApiItemClick(movie)}
+                >
+                  Episode {movie.episode_id} Episode {ToRoman(movie.episode_id)}{" "}
+                  -{movie.title} {movie.release_date}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className={styles.column}>
           {selectedMovies ? (
