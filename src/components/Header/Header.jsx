@@ -55,9 +55,19 @@ const Header = ({ movies, setFilteredMovies }) => {
             <span>Sort by</span>
             <button onClick={closeSortMenu}>&times;</button>
           </div>
-          <div style={{ cursor: "pointer", padding: 10, gap: 20 }}>
-            <div onClick={() => handleSort("episode_id")}>Episode</div>
-            <div onClick={() => handleSort("release_date")}>Year</div>
+          <div>
+            <div
+              className={styles.item}
+              onClick={() => handleSort("episode_id")}
+            >
+              Episode
+            </div>
+            <div
+              className={styles.item}
+              onClick={() => handleSort("release_date")}
+            >
+              Year
+            </div>
           </div>
         </div>
       )}

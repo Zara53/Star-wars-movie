@@ -29,3 +29,14 @@
 .description {
   padding: 20px;
 }
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.no_data {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 150px;
+}

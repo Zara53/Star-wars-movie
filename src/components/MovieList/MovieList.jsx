@@ -36,16 +36,20 @@ const MovieList = () => {
       <div className={styles.appContainer}>
         <div className={styles.column}>
           {filteredMovies.length === 0 ? (
-            <div>No Data Found</div>
+            <div className={styles.no_data}>No Data Found</div>
           ) : (
             <ul>
               {filteredMovies.map((movie) => (
                 <li
+                  className={styles.list}
                   key={movie.episode_id}
                   onClick={() => handleApiItemClick(movie)}
                 >
-                  Episode {movie.episode_id} Episode {ToRoman(movie.episode_id)}{" "}
-                  -{movie.title} {movie.release_date}
+                  <span>
+                    Episode {movie.episode_id} Episode{" "}
+                    {ToRoman(movie.episode_id)} - {movie.title}
+                  </span>
+                  <span>{movie.release_date}</span>
                 </li>
               ))}
             </ul>
@@ -62,14 +66,7 @@ const MovieList = () => {
               <p>Directed by : {selectedMovies.director}</p>
             </div>
           ) : (
-            <p
-              style={{
-                textAlign: "center",
-                fontSize: 20,
-              }}
-            >
-              No movie is selected
-            </p>
+            <p className={styles.no_data}>No movie is selected</p>
           )}
         </div>
       </div>
